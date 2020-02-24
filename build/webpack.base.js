@@ -47,7 +47,13 @@ module.exports = (env) => { // webpack配置文件可以导出一个函数，函
         // 我们需要转化js，把es8,es7,es6等转化成es5 
         //babel ( @babel/core -> babel的核心模块,提供转化的方法   @babel.preset-env ->这个包是需要@babel/core支持的，用来将es678转化成es5    babel-loader -> 这个包用babel核心模块来处理)
         module: {//要处理的模块
-            rules: [
+            rules: [//默认loader执行顺序是从右往左,从下往上
+                {
+                    test: /\.js$/,
+                    use: 'eslint-loader',
+                    exclude: /node_modules/,
+                    enforce: 'pre' //强制在所有js的loader之前执行 
+                },
                 {
                     test: /\.js$/,
                     use: 'babel-loader',

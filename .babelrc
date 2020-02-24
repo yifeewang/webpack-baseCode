@@ -1,8 +1,11 @@
 {//plugins从上到下执行， presets从下到上执行
     "presets": [//预设
         ["@babel/preset-env",{
-            "corejs": "2",
+            "corejs": 2,
             "useBuiltIns": "usage"
         }]
+    ],
+    "plugins": [
+        "@babel/plugin-transform-runtime"
     ]
 }
