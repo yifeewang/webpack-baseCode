@@ -7,6 +7,7 @@ module.exports = {
         contentBase: path.resolve(__dirname, '..', './public'),
         compress: true, //启动gzip压缩
         port: 3000,
+        overlay: true //弹出提示层
         // open: true //打开服务后自动打开浏览器
     }
 }
